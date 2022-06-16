@@ -12,8 +12,9 @@ get_header();
 
 	<main class="single-tmp">
 			<section class="page-head">
-				<div class="page-head__img"><img src="http://2259842.plastikb.web.hosting-test.net/wp-content/uploads/2022/06/h1.png" alt=""></div>
-				<h1 class="page-head__title"><img src="http://2259842.plastikb.web.hosting-test.net/wp-content/uploads/2022/06/plastic.svg" alt="">Hair Transplant</h1>
+				<?php $main = get_field('main'); ?>
+				<div class="page-head__img"><img src="<?php echo $main['background'] ?>" alt=""></div>
+				<h1 class="page-head__title"><img src="<?php echo $main['icon'] ?>" alt=""><?php echo $main['page_title'] ?></h1>
 			</section>
 			<nav class="breadcrumb">
 				<ul class="breadcrumb__body">
@@ -23,144 +24,79 @@ get_header();
 				</ul>
 			</nav>
 			<div class="single-tmp__wrapper">
-				<section class="sidebar">
-					<div class="sidebar__categories">
-						<h3 class="sidebar__title">Hair surgery</h3>
-						<ul class="sidebar__list">
-							<li class="sidebar__item"><a class="sidebar__link">Hair transplant</a></li>
-							<li class="sidebar__item"><a class="sidebar__link">Beard transplant</a></li>
-							<li class="sidebar__item"><a class="sidebar__link">Forehead reduction surgery</a></li>
-							<li class="sidebar__item"><a class="sidebar__link">Eyebrow transplant turkey</a></li>
-						</ul>
-					</div>
 
-					<div class="sidebar__button-block">
-						<h3 class="sidebar__title">intrested in hair surgery?</h3>
-						<a href="" class="sidebar__button button --action _anim-items _anim-no-hide"><span>Make your reservation</span></a>
-					</div>
+				<section class="sidebar">
+					<?php 
+					if (have_rows('sidebar')) { 
+						while (have_rows('sidebar')) { the_row();
+
+							
+							if (get_row_layout() == 'categories_list') {
+								get_template_part('template-parts/singular-acf-parts/sidebar-parts/section', 'categories-list');
+						 	}
+							
+
+
+							if (get_row_layout() == 'block_button') {
+								get_template_part('template-parts/singular-acf-parts/sidebar-parts/section', 'button');
+							}
+							
+						}
+					} ?>
 				</section>
 
+
 				<article class="content">
+					<?php
+					if (have_rows('content')) { 
+							while (have_rows('content')) { the_row();					
 
-					<section class="content__quote block-quote">
-						<h2 class="block-quote__title">Hair Transplant
-							Surgery in Turkey</h2>
-						<p class="block-quote__subtitle">Essential Information to Know Before and After</p>
-						<div class="block-quote__author-block">
-							<div class="block-quote__img"><img src="http://2259842.plastikb.web.hosting-test.net/wp-content/uploads/2022/06/photo-1438761681033-6461ffad8d80.jpg" alt=""></div>
-							<div class="block-quote__author">
-								<p>Article by: </p>
-								<span>Wilhemin Smith</span>
-							</div>
-						</div>
-					</section>
 
-					<section class="content__description-1 description-1">
-						<h3 class="description-1__title">One of the most common occurrences to affect the majority of the population of the world, at any age, besides aging, is hair loss or hair fall. This is something that happens with both men and women.</h3>
-						<p class="description-2__paragraph paragraph">Because of the high demand for solutions to rectify personal issues, such as hair loss using various methods of hair transplant surgery specifically, the medical and technology sectors have created various ways to help those who suffer from it.</p>
-						<p class="description-2__paragraph paragraph">These methods include various techniques to help restore hair growth and one of the most popular countries that people frequent to get this implemented is Turkey. As an effective method for dealing with hair loss, Turkey has stepped ahead of its time in providing people with a few different techniques that they can choose from depending on a few factors. This and more will be discussed in-depth below.</p>
-					</section>
+								if (get_row_layout() == 'block_quote') {
+									get_template_part('template-parts/singular-acf-parts/content-parts/section', 'quote');
+								}
 
-					<section class="content__description-2 description-2">
-						<h3 class="description-2__title">Why Are Hair Transplant Procedures So Popular in Turkey?</h3>
-						<p class="description-2__paragraph paragraph">One of the main reasons why people flock to this part of the world to rectify their hair loss is the cost. Turkey has not only some of the most cutting-edge technology when it comes to hair transplants, but it also has the most competitive prices in the world.
-							Prices are much more affordable among the growing number of women and men compared to any other part of the world including European regions. To put it into numbers, <a href="">Turkey's hair transplant costs</a> are almost 70% cheaper than anywhere else.
-							In addition, the clinics that offer this service are high-end establishments, kitted with some of the best industry-standard technologies available. We take a look at some of the available options below. </p>
-					</section>
+								if (get_row_layout() == 'block_quote_button') {
+									get_template_part('template-parts/singular-acf-parts/content-parts/section', 'quote-2');
+								}
 
-					<section class="content__image block-image">
-						<img src="http://2259842.plastikb.web.hosting-test.net/wp-content/uploads/2022/06/image-1.png" alt="">
-						<p class="block-image__desc">The cause of hair loss in men and women could be a number of different medical conditions, however, one of the most common ones is known as ‘androgenetic alopecia’ also known as female or male pattern hair loss.</з>
-					</section>
+								if (get_row_layout() == 'block_text_nunito') {
+									get_template_part('template-parts/singular-acf-parts/content-parts/section', 'desc-1');
+								}
 
-					<section class="content__description-2 description-2">
-						<h3 class="description-2__title">Why Are Hair Transplant Procedures So Popular in Turkey?</h3>
-						<p class="description-2__paragraph paragraph">One of the main reasons why people flock to this part of the world to rectify their hair loss is the cost. Turkey has not only some of the most cutting-edge technology when it comes to hair transplants, but it also has the most competitive prices in the world.
-							Prices are much more affordable among the growing number of women and men compared to any other part of the world including European regions. To put it into numbers, <a href="">Turkey's hair transplant costs</a> are almost 70% cheaper than anywhere else.
-							In addition, the clinics that offer this service are high-end establishments, kitted with some of the best industry-standard technologies available. We take a look at some of the available options below. </p>
-						<ul>
-							<li>Follicular unit excision (FUE)</li>
-							<li>Follicular unit transplantation (FUT)</li>
+								if (get_row_layout() == 'block_text_marcellus') {
+									get_template_part('template-parts/singular-acf-parts/content-parts/section', 'desc-2');
+								}
 
-						</ul>
-					</section>
+								if (get_row_layout() == 'block_image') {
+									get_template_part('template-parts/singular-acf-parts/content-parts/section', 'image');
+								}
+								
+								if (get_row_layout() == 'block_links') {
+									get_template_part('template-parts/singular-acf-parts/content-parts/section', 'links');
+								}
 
-					<section class="content__quote-2 block-quote-2">
-						<h2 class="block-quote-2__title">“Dr. Ergin Er has 25 years of experience in Plastic Surgery and is an award-wining surgeon in Turkey, who used to be a Chief Military Doctor in the Turkish Navy.“</h2>
-						<div class="block-quote-2__author-block">
-							<div class="block-quote-2__img"><img src="http://2259842.plastikb.web.hosting-test.net/wp-content/uploads/2022/06/photo-1438761681033-6461ffad8d80.jpg" alt=""></div>
-							<div class="block-quote-2__author">
-								<p>Article by: </p>
-								<span>Wilhemin Smith</span>
-							</div>
-							<div class="block-quote-2__buttons">
-								<a href="" class="block-quote-2__button button --action _anim-items _anim-no-hide"><span>Meet The Surgeons</span></a>
-							</div>
-						</div>
-					</section>
+								if (get_row_layout() == 'numbered_list') {
+									get_template_part('template-parts/singular-acf-parts/content-parts/section', 'numbered-list');
+								}
 
-					<section class="numbers-list">
-						<h3 class="numbers-list__title">NeoGraft Transplantation Procedure</h3>
-						<h4 class="numbers-list__subtitle">During the surgery the below is what you may expect:</h4>
-						<ol class="numbers-list__list">
-							<li class="numbers-list__item">The specialist shaves your hair either in a section or entirely. </li>
-							<li class="numbers-list__item">The specialist shaves your hair either in a section or entirely. </li>
-							<li class="numbers-list__item">The specialist shaves your hair either in a section or entirely. </li>
-							<li class="numbers-list__item">The specialist shaves your hair either in a section or entirely. </li>
-							<li class="numbers-list__item">The specialist shaves your hair either in a section or entirely. </li>
-							<li class="numbers-list__item">The specialist shaves your hair either in a section or entirely. </li>
-						</ol>
-					</section>
+								if (get_row_layout() == 'block_image_and_list') {
+									get_template_part('template-parts/singular-acf-parts/content-parts/section', 'img-and-list');
+								}
 
-					<section class="block-img-list">
-						<div class="block-img-list__title">Why choose Pubicus Foliculus clinic?</div>
-						<div class="block-img-list__wrap">
-							<div class="block-img-list__img"><img src="http://2259842.plastikb.web.hosting-test.net/wp-content/uploads/2022/05/Rectangle-Copy-13-4.png" alt=""></div>
-							<ul class="block-img-list__list  _anim-items _anim-no-hide">
-								<li class="block-img-list__item _icon-check">Natural looking Hair </li>
-								<li class="block-img-list__item _icon-check ">Continued Hair Growth</li>
-								<li class="block-img-list__item _icon-check ">Boost Confidence </li>
-								<li class="block-img-list__item _icon-check ">No more Bald Spots</li>
-								<li class="block-img-list__item _icon-check ">High Sucess Rate </li>
-							</ul>
-						</div>
-					</section>
+								if (get_row_layout() == 'block_about') {
+									get_template_part('template-parts/singular-acf-parts/content-parts/section', 'about'); 
+								}
 
-					<section class="content__description-2 description-2">
-						<h3 class="description-2__title">Why Are Hair Transplant Procedures So Popular in Turkey?</h3>
-						<p class="description-2__paragraph paragraph">One of the main reasons why people flock to this part of the world to rectify their hair loss is the cost. Turkey has not only some of the most cutting-edge technology when it comes to hair transplants, but it also has the most competitive prices in the world.
-							Prices are much more affordable among the growing number of women and men compared to any other part of the world including European regions. To put it into numbers, <a href="">Turkey's hair transplant costs</a> are almost 70% cheaper than anywhere else.
-							In addition, the clinics that offer this service are high-end establishments, kitted with some of the best industry-standard technologies available. We take a look at some of the available options below. </p>
-						<ul>
-							<li>Follicular unit excision (FUE)</li>
-							<li>Follicular unit transplantation (FUT)</li>
+								if (get_row_layout() == 'block_form') {
+									get_template_part('template-parts/singular-acf-parts/content-parts/section', 'form'); 
+								}
 
-						</ul>
-					</section>
-
-					<section class="block-links">
-						<h3 class="block-links__title">useful related articles</h3>
-						<div class="block-links__links">
-							<a href="" class="block-links__link "><span class="_icon-arrow">Hair transplant</span></a>
-							<a href="" class="block-links__link "><span class="_icon-arrow">Beard transplant </span></a>
-							<a href="" class="block-links__link "><span class="_icon-arrow">Forehead reduction surgery </span></a>
-							<a href="" class="block-links__link "><span class="_icon-arrow">Eyebrow transplant turkey</span></a>
-						</div>
-					</section>
-
-					<section class="about-clinic">
-						<h3 class="about-clinic__title">About the clinic</h3>
-						<p class="about-clinic__desc">Our head office is in Faringdon London and all treatment clinics are based in Istanbul, Turkey. We have a dedicated team to arrange your travel, arrival, and treatment plan, so you can arrive in Turkey hassle-free.</p>
-						<div class="about-clinic__map">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7285.802307047729!2d26.027401330555723!3d44.41429902663774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b200398ad6f461%3A0x8eb59fc39321868d!2zQmxvYyBBOSwgU3RyYWRhIENoaWxpYSBWZWNoZSA0LCBCdWN1cmXImXRpIDA2MTc0Mywg0KDRg9C80YvQvdC40Y8!5e0!3m2!1sru!2sua!4v1655167885641!5m2!1sru!2sua" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-						</div>
-
-					</section>
-
-					<section class="block-form">
-						<h3 class="block-form__title">Get FREE quote right now!</h3>
-						<div class="block-form__form"></div>
-					</section>
+								if (get_row_layout() == 'block_author') {
+									get_template_part('template-parts/singular-acf-parts/content-parts/section', 'form'); 
+								}
+							}
+						} ?>	
 
 					<section class="article-footer">
 						<div class="article-footer__info">
@@ -185,7 +121,6 @@ get_header();
 							</div>
 						</div>
 						<div class="article-footer__return"><a href="" class="_icon-arrow">Return to article listing page</a></div>
-
 					</section>
 
 				</article>
@@ -195,7 +130,6 @@ get_header();
 				<h3 class="swiper__title">Related Hair Treatment Guides</h3>
 				<div class="swiper__subtitle">Simply Aesthetic specializes in medical tourism, and is an official booking partner for some of the leading aesthetic surgeries in Turkey.</div>
 				<div class="single-tmp__slider swiper">
-
 					<div class="single-tmp-slider__wrapper swiper-wrapper">
 						<div class="single-tmp__slide swiper-slide">
 							<img src="http://2259842.plastikb.web.hosting-test.net/wp-content/uploads/2022/05/Rectangle-Copy-14.png" alt="">
