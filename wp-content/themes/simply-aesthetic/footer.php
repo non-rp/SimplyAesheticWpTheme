@@ -35,18 +35,8 @@
 							'container_class' => 'footer-menu__body',  
 							'menu_class'      => 'footer-menu__list',
 							'echo'            => true,
-							//'items_wrap'     => '<ul class="footer-menu__list">%3$s</ul>'
 
 						]); ?>
-						<!-- <nav class="footer-menu__body">
-							<ul class="footer-menu__list">
-								<li class="footer-menu__item"><a href="" class="footer-menu__link">Hair Transplant</a></li>
-								<li class="footer-menu__item"><a href="" class="footer-menu__link">Hair Transplant</a></li>
-								<li class="footer-menu__item"><a href="" class="footer-menu__link">Hair Transplant</a></li>
-								<li class="footer-menu__item"><a href="" class="footer-menu__link">Hair Transplant</a></li>
-								<li class="footer-menu__item"><a href="" class="footer-menu__link">Hair Transplant</a></li>
-							</ul>
-						</nav> -->
 					</div>
 				</div>
 

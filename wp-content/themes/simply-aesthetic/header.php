@@ -28,7 +28,7 @@
 			<div class="header__wrap">
 				<div class="header__top _anim-items _anim-no-hide"><span><?php the_field('top_header_row', 'option'); ?></span></div>
 				<div class="header__main">
-					<a href="" class="header__logo "><img class="_anim-items _anim-no-hide" src="<?php the_field('logo', 'option'); ?>" alt="Simply Aesthetic"></a>
+					<a href="<?php echo home_url(); ?>" class="header__logo "><img class="_anim-items _anim-no-hide" src="<?php the_field('logo', 'option'); ?>" alt="Simply Aesthetic"></a>
 					<button type="button" class="menu__icon icon-menu"><span></span></button>
 					
 					<div class="header__menu menu">
